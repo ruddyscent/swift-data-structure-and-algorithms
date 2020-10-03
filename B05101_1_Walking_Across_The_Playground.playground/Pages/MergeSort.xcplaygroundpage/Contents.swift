@@ -6,7 +6,7 @@
 
 import Cocoa
 
-func makeList(n:Int ) -> [Int] {
+func makeList(n: Int) -> [Int] {
     var result:[Int] = []
     for _ in 0..<n {
         result.append(Int(arc4random_uniform(20) + 1))
@@ -15,12 +15,12 @@ func makeList(n:Int ) -> [Int] {
 }
 
 
-func mergeSort<T:Comparable>( list:inout [T]) {
+func mergeSort<T: Comparable>(list: inout [T]) {
     if list.count <= 1 {
         return
     }
     
-    func merge( left:[T], right:[T]) -> [T] {
+    func merge(left: [T], right: [T]) -> [T] {
         var left = left
         var right = right
         var result = [T]()
@@ -66,10 +66,10 @@ func mergeSort<T:Comparable>( list:inout [T]) {
 for i in 1...10 {
     
     var myRandomList: [Int] = makeList(n: i * 100)
-    var start = NSDate()
+    let start = NSDate()
     mergeSort(list: &myRandomList)
-    var end = NSDate()
-    var timeInterval: Double = end.timeIntervalSince(start as Date)
+    let end = NSDate()
+    let timeInterval: Double = end.timeIntervalSince(start as Date)
     
     print("Array size = \(myRandomList.count), time = \(timeInterval) / sec")
 }
